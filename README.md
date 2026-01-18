@@ -35,12 +35,7 @@ There are three workflows for analytics projects.
 Follow the detailed instructions at:
 [**01. Set Up Your Machine**](https://denisecase.github.io/pro-analytics-02/01-set-up-machine/)
 
-🛑 All steps must be completed and verified successfully.
-
 ## 02: Set Up Project (Once Per Project)
-
-Follow the detailed instructions at:
-[**02. Set Up Your Project**](https://denisecase.github.io/pro-analytics-02/02-set-up-project/)
 
 Detailed instructions are provided to:
 
@@ -75,6 +70,8 @@ If asked: "We noticed a new environment has been created. Do you want to select 
 
 If successful, you'll see a new `.venv` folder appear in the root project folder.
 
+Follow the steps to [Align VS Code with the Environment ](https://denisecase.github.io/pro-analytics-02/02-set-up-project/05-set-up-environment/#2-align-vs-code-with-the-environment-venv).
+
 Optional (recommended): install and run pre-commit checks (repeat the git `add` and `commit` twice if needed):
 
 ```shell
@@ -85,12 +82,12 @@ git add -A
 uvx pre-commit run --all-files
 ```
 
+Additional help and troubleshooting is available at:
+[**02. Set Up Your Project**](https://denisecase.github.io/pro-analytics-02/02-set-up-project/)
+
 🛑 Do not continue until all REQUIRED steps are complete and verified.
 
 ## 03: Daily Workflow (Working With Python Project Code)
-
-Follow the detailed instructions at:
-[**03. Daily Workflow**](https://denisecase.github.io/pro-analytics-02/03-daily-workflow/)
 
 Commands are provided below to:
 
@@ -127,7 +124,7 @@ Run Python checks and tests (as available):
 ```shell
 uv run ruff format .
 uv run ruff check . --fix
-uv run pytest --cov=src --cov-report=term-missing
+uv run pytest
 ```
 
 Build and serve docs (hit **CTRL+c** in the VS Code terminal to quit serving):
@@ -208,7 +205,7 @@ Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 
 ## Resources
 
-- [Pro-Analytics-02](<[./docs/pro-tips.md](https://denisecase.github.io/pro-analytics-02/)>) - guide to professional Python
+- [Pro-Analytics-02](https://denisecase.github.io/pro-analytics-02/) - guide to professional Python
 - [ANNOTATIONS.md](./ANNOTATIONS.md) - REQ/WHY/OBS annotations used
 - [INSTRUCTORS.md](./docs/root/INSTRUCTORS.md) - guidance and notes for instructors and maintainers
 - [POLICIES.md](./docs/root/POLICIES.md) - project rules and expectations that apply to all contributors
