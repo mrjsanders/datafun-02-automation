@@ -1,6 +1,6 @@
-"""app_yourname.py - Project script.
+"""mrjsanders.py - Project script.
 
-Author: Your Name or Alias
+Author: mrjsanders
 Date: 2026-01
 
 Practice key Python skills:
@@ -19,16 +19,7 @@ Practice key Python skills:
 OBS:
   This is your file to practice and customize.
   Find the TODO comments, and as you complete each task, remove the TODO note.
-  TODO: Make all your files start with your name or alias in the filename
 
-TODO: Change the Author line of the docstring above to your name or alias.
-
-TODO: RENAME this file from app_yourname.py to something
-      that includes your name or alias, e.g., app_stellar_analytics.py.
-
-TODO: Update the opening line of the docstring above to match the new file name.
-
-TODO: Update the associated `uv run python` command in the README.md file.
 """
 
 
@@ -85,39 +76,23 @@ def write_text_file(path: Path, content: str) -> None:
 
 
 def create_files_from_numeric_range() -> None:
-    # TODO: Create a file for each year in the range 2023 to 2026 inclusive.
-    # TODO: Change the docstring, variable names, code, and log messages accordingly.
-    # TODO: Change the filename format to start with your name or alias.
-    # TODO: Customize the content of each created file.
-    """Create one file per quarter for a given inclusive quarter range.
+    """Create one file per year for a given year range.
 
     Arguments: None
-
     Returns:  None
     """
-    # Log the start of this function
-    LOG.info("START FUNCTION 1: create_files_from_numeric_range()")
+    LOG.info("Start Function 1: create_files_from_numeric_range()")
 
-    # Define a variable for the start
-    start_quarter: int = 1
-    # Define a variable for the end
-    end_quarter: int = 4
+    starting_year: int = 2023
+    ending_year: int = 2026
 
-    # LOG the starting name and value
-    LOG.info(f"Starting quarter: {start_quarter}")
+    LOG.info(f"Starting year: {starting_year}")
+    LOG.info(f"Ending year: {ending_year}")
 
-    # LOG the ending name and value
-    LOG.info(f"Ending quarter: {end_quarter}")
-
-    # For each number in the range (add one to the end to be INCLUSIVE)
-    for quarter_number in range(start_quarter, end_quarter + 1):
-        # Define a filename that starts with my name and uses the quarter number
-        filename: str = f"case_quarter_{quarter_number}.txt"
-        # Define the path for my new file
+    for year in range(starting_year, ending_year + 1):
+        filename: str = f"case_{year}.txt"
         path: Path = ROOT_DIR / filename
-        # Define some content to put in the new file
-        content: str = f"Here is my report for quarter number: {quarter_number}\n"
-        # Call the provided helper function to write the file and log it
+        content: str = f"Here is my report for the year: {year}\n"
         write_text_file(path, content)
 
 
@@ -125,44 +100,26 @@ def create_files_from_numeric_range() -> None:
 
 
 def create_files_from_list() -> None:
-    # TODO: Create a file for each item in a list (do not use pets).
-    # TODO: Change the docstring, variable names, code, and log messages accordingly.
-    # TODO: Change the filename format to start with your name or alias.
-    # TODO: Customize the content of each created file.
-    """Create files based on a list of pet names.
+    """Create one file per region.
 
     Arguments: None
     Returns:  None
     """
-    # Log the start of this function
     LOG.info("START FUNCTION 2: create_files_from_list()")
+    LOG.info(f"Region list ={REGIONS}")
 
-    # Define a pet list
-    pet_list: list[str] = ["dog", "cat", "fish"]
-
-    # Log my pet list
-    LOG.info(f"Pet list ={pet_list}")
-
-    # For each pet name in the pet list (must have a colon and indentation matters!)
-    for pet_name in pet_list:
-        # Define a filename that starts with my name and uses this pet name
-        filename: str = f"case_{pet_name}.txt"
-        # Define the path for my new file
+    for region in REGIONS:
+        filename: str = f"case_{region.replace(' ', '_')}.txt"
         path: Path = ROOT_DIR / filename
-        # Define some content to put in the new file
-        content: str = f"Here is my pet data for pet: '{pet_name}'\n"
-        # Call the provided helper function to write the file and log it
-        write_text_file(path, content)
+        content: str = f"Here is my report for the region: {region}\n"
+
+    write_text_file(path, content)
 
 
 # === DECLARE REPETITION FUNCTION 3: USING LIST COMPREHENSION ===
 
 
 def create_files_using_list_comprehension() -> None:
-    # TODO: Create a file for each item in a new list you transformed USING A LIST COMPREHENSION (do not use pets).
-    # TODO: Change the docstring, variable names, code, and log messages accordingly.
-    # TODO: Change the filename format to start with your name or alias.
-    # TODO: Customize the content of each created file.
     """Create files by transforming names using list comprehension.
 
     Arguments: None
@@ -175,26 +132,13 @@ def create_files_using_list_comprehension() -> None:
     LOG.info("WHY: They are super compact list transformations.")
     LOG.info("Read it as <do this logic> FOR each <item> IN <list>.")
 
-    # Define my pet list
-    pet_list: list[str] = ["dog", "cat", "fish"]
-    # Log my pet list
-    LOG.info(f"Pet list ={pet_list}")
+    region_tag: list[str] = [region.lower().replace(" ", "_") for region in REGIONS]
+    LOG.info(f"Region tag list ={region_tag}")
 
-    # Define a prefix (or any other transformation logic)
-    prefix = "favorite_"
-
-    # Use list comprehension syntax to create a new list from the pet list
-    favorite_list: list[str] = [f"{prefix}{name}" for name in pet_list]
-
-    # For each favorite name in the new favorite list
-    for favorite in favorite_list:
-        # Define a file name that starts with my name and uses this favorite name
-        filename: str = f"case_{favorite}.txt"
-        # Define the path for my new file
+    for tag in region_tag:
+        filename: str = f"case_{tag}.txt"
         path: Path = ROOT_DIR / filename
-        # Define some content to put in the new file
-        content: str = f"Here is the special data about my '{favorite}'\n"
-        # Call the provided helper function to write the file and log it
+        content: str = f"Here is my special data about the region tag: '{tag}'\n"
         write_text_file(path, content)
 
 
@@ -202,9 +146,6 @@ def create_files_using_list_comprehension() -> None:
 
 
 def create_files_periodically() -> None:
-    # TODO: Create at least 5 files and less than 25 files with a delay between each creation.
-    # TODO: Change the filename format to start with your name or alias.
-    # TODO: Customize the content of each created file.
     """Create a small number of files with a delay between each creation.
 
     Arguments: None
@@ -217,7 +158,7 @@ def create_files_periodically() -> None:
     # Define wait_seconds: Seconds to wait between file writes.
     wait_seconds: int = 1
     # Define count: How many files to create.
-    count: int = 3
+    count: int = 13  # 5 >= count < 25
 
     # Log the wait_seconds
     LOG.info(f"Waiting seconds between files: {wait_seconds}")
@@ -235,8 +176,14 @@ def create_files_periodically() -> None:
         # Define the path for my new file
         path: Path = ROOT_DIR / filename
         # Define some content to put in the new file
-        content: str = f"If we accidentally make an infinite loop, this will go forever... We're on file count:  {i}\n"
-        # Call the provided helper function to write the file and log it
+
+        content: str = (
+            "If we accidentally make an infinite loop, this will go forever... We're on file count: {i}\n"
+            "Periodic file creation {automated}\n"
+            f"File number: {i}\n"
+            f"Delay between files: {wait_seconds} seconds.\n"
+        )
+
         write_text_file(path, content)
 
         # Log the wait time

@@ -108,7 +108,7 @@ In the same VS Code terminal, run any Python source files:
 
 ```shell
 uv run python src/datafun_02_automation/app_case.py
-uv run python src/datafun_02_automation/app_yourname.py
+uv run python src/datafun_02_automation/mrjsanders.py
 ```
 
 If a command fails, verify:
